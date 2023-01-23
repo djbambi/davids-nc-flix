@@ -1,16 +1,38 @@
 \c nc_flix
 
 \echo '\n The number of films in stock for each genre:'
--- WITH movies_genres(
--- SELECT movies.title AS Film, genres.genre_slug AS Genres FROM movie_junction_table
--- JOIN movies ON movie_junction_table.film_id = movies.movie_id
--- JOIN genres ON movie_junction_table.genre_id = genres.genre_id;
--- )
 
--- SELECT * FROM stock
--- JOIN movies_genres ON stock.movie_id = movies_genres.movie_id;
+WITH movies_genres AS (
+SELECT * FROM movie_junction_table
+JOIN movies ON movie_junction_table.film_id = movies.movie_id
+JOIN genres ON movie_junction_table.genre_id = genres.genre_id
+JOIN stock ON movies.movie_id = stock.movie_id
+ORDER BY genres.genre_slug
+)
 
+SELECT genre_slug AS genre,
+COUNT(genre_slug)
+FROM movies_genres
+GROUP BY genre_slug;
 \echo '\n Here is the average rating for films in stock in Newcastle:'
+
+WITH movies_stores AS(
+SELECT * FROM stock
+JOIN movies ON movies.movie_id = stock.movie_id
+JOIN stores ON stores.store_id = stock.store_id
+)
+
+-- WITH newcastle_ratings AS(
+-- SELECT DISTINCT city, title, rating FROM movies_stores
+-- WHERE city = 'Newcastle')
+
+SELECT AVG(rating) AS average_rating
+FROM
+(SELECT DISTINCT city, title, rating FROM movies_stores
+WHERE city = 'Newcastle') AS newcastle_average
+;
+
+
 
 \echo '\n Here are all the films made in 90s with above average rating available in Leeds'
 

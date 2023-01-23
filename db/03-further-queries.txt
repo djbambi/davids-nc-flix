@@ -1,8 +1,25 @@
 You are now connected to database "nc_flix" as user "northcoders".
 
  The number of films in stock for each genre:
+  genre  | count 
+---------+-------
+ action  |    16
+ comedy  |     8
+ crime   |     9
+ drama   |     5
+ family  |     4
+ fantasy |     3
+ romance |     1
+ sci_fi  |    17
+(8 rows)
+
 
  Here is the average rating for films in stock in Newcastle:
+   average_rating   
+--------------------
+ 7.6666666666666667
+(1 row)
+
 
  Here are all the films made in 90s with above average rating available in Leeds
 
