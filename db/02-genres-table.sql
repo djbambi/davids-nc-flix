@@ -27,7 +27,7 @@ CREATE TABLE movie_junction_table(
 );
 
 -- SELECT * FROM movies;
-SELECT * FROM genres;
+-- SELECT * FROM genres;
 
 INSERT INTO movie_junction_table(
     film_id, genre_id
@@ -80,3 +80,8 @@ VALUES
     (25, 5),
     (25, 8)
 RETURNING *;
+
+
+SELECT movies.title AS Film, genres.genre_slug AS Genres FROM movie_junction_table
+JOIN movies ON movie_junction_table.film_id = movies.movie_id
+JOIN genres ON movie_junction_table.genre_id = genres.genre_id;

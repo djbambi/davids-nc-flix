@@ -1,6 +1,14 @@
 \c nc_flix
 
 \echo '\n The number of films in stock for each genre:'
+-- WITH movies_genres(
+-- SELECT movies.title AS Film, genres.genre_slug AS Genres FROM movie_junction_table
+-- JOIN movies ON movie_junction_table.film_id = movies.movie_id
+-- JOIN genres ON movie_junction_table.genre_id = genres.genre_id;
+-- )
+
+-- SELECT * FROM stock
+-- JOIN movies_genres ON stock.movie_id = movies_genres.movie_id;
 
 \echo '\n Here is the average rating for films in stock in Newcastle:'
 

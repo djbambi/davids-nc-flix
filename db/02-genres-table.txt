@@ -1,0 +1,117 @@
+You are now connected to database "nc_flix" as user "northcoders".
+CREATE TABLE
+ genre_id | genre_slug |                       genre_description                        
+----------+------------+----------------------------------------------------------------
+        1 | family     | Fun for everyone!
+        2 | comedy     | A giggle a minute
+        3 | romance    | I feel in my fingers, I feel it in my toes
+        4 | fantasy    | There be elves and witches
+        5 | action     | Shooty shooty, punchy punchy
+        6 | drama      | Plot driven story time
+        7 | crime      | Watch out, there's gangsters about
+        8 | sci_fi     | Your scientists were so preoccupied with whether they could...
+(8 rows)
+
+INSERT 0 8
+CREATE TABLE
+ film_genres_id | film_id | genre_id 
+----------------+---------+----------
+              1 |       1 |        1
+              2 |       1 |        2
+              3 |       2 |        2
+              4 |       2 |        6
+              5 |       3 |        2
+              6 |       3 |        6
+              7 |       4 |        1
+              8 |       5 |        1
+              9 |       6 |        4
+             10 |       6 |        5
+             11 |       7 |        4
+             12 |       7 |        5
+             13 |       8 |        3
+             14 |       8 |        6
+             15 |       9 |        2
+             16 |       9 |        6
+             17 |       9 |        7
+             18 |      10 |        6
+             19 |      10 |        7
+             20 |      11 |        2
+             21 |      11 |        3
+             22 |      12 |        3
+             23 |      13 |        4
+             24 |      13 |        5
+             25 |      14 |        5
+             26 |      14 |        8
+             27 |      15 |        5
+             28 |      15 |        8
+             29 |      16 |        5
+             30 |      16 |        8
+             31 |      17 |        2
+             32 |      17 |        8
+             33 |      18 |        2
+             34 |      18 |        8
+             35 |      19 |        6
+             36 |      19 |        7
+             37 |      20 |        5
+             38 |      20 |        4
+             39 |      21 |        7
+             40 |      22 |        1
+             41 |      23 |        2
+             42 |      23 |        3
+             43 |      24 |        2
+             44 |      24 |        7
+             45 |      25 |        5
+             46 |      25 |        8
+(46 rows)
+
+INSERT 0 46
+                film                | genres  
+------------------------------------+---------
+ Ghostbusters II                    | family
+ Ghostbusters II                    | comedy
+ The Breakfast Club                 | comedy
+ The Breakfast Club                 | drama
+ Todo Sobre Mi Madre                | comedy
+ Todo Sobre Mi Madre                | drama
+ The Lion King II: Simba's Pride    | family
+ The Care Bears Movie               | family
+ Tron                               | fantasy
+ Tron                               | action
+ Highlander                         | fantasy
+ Highlander                         | action
+ Cleopatra                          | romance
+ Cleopatra                          | drama
+ Catch Me If You Can                | comedy
+ Catch Me If You Can                | drama
+ Catch Me If You Can                | crime
+ Taxi Driver                        | drama
+ Taxi Driver                        | crime
+ The Princess Switch                | comedy
+ The Princess Switch                | romance
+ Girl, Interrupted                  | romance
+ The Fellowship of the Ring         | fantasy
+ The Fellowship of the Ring         | action
+ Episode I - The Phantom Menace     | action
+ Episode I - The Phantom Menace     | sci_fi
+ Episode IV - A New Hope            | action
+ Episode IV - A New Hope            | sci_fi
+ Episode IX - The Rise of Skywalker | action
+ Episode IX - The Rise of Skywalker | sci_fi
+ Back to the Future                 | comedy
+ Back to the Future                 | sci_fi
+ Back to the Future Part II         | comedy
+ Back to the Future Part II         | sci_fi
+ The Godfather                      | drama
+ The Godfather                      | crime
+ Raiders of the Lost Ark            | action
+ Raiders of the Lost Ark            | fantasy
+ Pulp Fiction                       | crime
+ Toy Story                          | family
+ Groundhog Day                      | comedy
+ Groundhog Day                      | romance
+ A Fish Called Wanda                | comedy
+ A Fish Called Wanda                | crime
+ Independance Day                   | action
+ Independance Day                   | sci_fi
+(46 rows)
+
