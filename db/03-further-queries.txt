@@ -3,14 +3,14 @@ You are now connected to database "nc_flix" as user "northcoders".
  The number of films in stock for each genre:
   genre  | count 
 ---------+-------
- action  |    16
+ action  |    15
  comedy  |     8
  crime   |     9
  drama   |     5
  family  |     4
  fantasy |     3
  romance |     1
- sci_fi  |    17
+ sci_fi  |    16
 (8 rows)
 
 
@@ -21,12 +21,70 @@ You are now connected to database "nc_flix" as user "northcoders".
 (1 row)
 
 
- Here are all the films made in 90s with above average rating available in Leeds
+ Here are all the films made in 90s with above average rating
+ movie_id |             title              | release_date | rating | cost | classification 
+----------+--------------------------------+--------------+--------+------+----------------
+       14 | Episode I - The Phantom Menace | 1999-05-19   |      7 | 1.43 | 
+       22 | Toy Story                      | 1995-11-19   |     10 | 1.43 | U
+       23 | Groundhog Day                  | 1993-02-12   |      7 | 1.43 | U
+       25 | Independance Day               | 1996-07-03   |      7 | 0.95 | 15
+(4 rows)
+
 
  Here is the number of copies of the top rated film of the 5 most recently released films we have in stock across all stores:
+ count 
+-------
+     0
+(1 row)
+
 
  These are the locations where our customers live which dont have stores:
+ location  
+-----------
+ Leicester
+ Bolton
+ Liverpool
+(3 rows)
+
+
+ These are the locations we have influence over
+ locations  
+------------
+ Leeds
+ Leicester
+ Newcastle
+ Liverpool
+ Birmingham
+ Manchester
+ Bolton
+(7 rows)
+
 
  This store has the highest quantity of stock:
+    city    | stock 
+------------+-------
+ Leeds      |    10
+ Manchester |    10
+(2 rows)
+
 
  ...and this is the most abundant genre in that store:
+    city    | count | count 
+------------+-------+-------
+ Birmingham |     8 |     1
+ Birmingham |     8 |     1
+ Leeds      |     7 |     1
+ Leeds      |     1 |     1
+ Leeds      |     2 |     1
+ Leeds      |     3 |     1
+ Leeds      |     4 |     1
+ Manchester |     8 |     1
+ Manchester |     5 |     1
+ Manchester |     5 |     1
+ Manchester |     1 |     1
+ Manchester |     4 |     1
+ Newcastle  |     3 |     1
+ Newcastle  |     1 |     1
+ Newcastle  |     1 |     1
+(15 rows)
+

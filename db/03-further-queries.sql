@@ -123,14 +123,54 @@ NOT IN
 
 
 
-SELECT COUNT(stock_id) FROM stock
-SELECT * FROM stores
-JOIN stock ON stores.store_id = stock.store_id;
+-- SELECT COUNT(stock_id) FROM stock
+-- SELECT * FROM stores
+-- JOIN stock ON stores.store_id = stock.store_id;
 
-SELECT * FROM stores
-WHERE city
-IN (SELECT customers.location FROM customers);
+-- SELECT * FROM stores
+-- WHERE city
+-- IN (SELECT customers.location FROM customers);
+
+-- SELECT city, 
+-- COUNT(city) OVER(PARTITION BY stock.store_id) AS number_in_stock
+-- FROM (SELECT * FROM stores
+-- JOIN stock ON stores.store_id = stock.store_id) AS stock;
+
+WITH stock_data AS(SELECT * FROM stores
+JOIN stock ON stores.store_id = stock.store_id)
+
+SELECT city, COUNT(city) AS stock
+FROM stock_data
+GROUP BY city
+ORDER BY stock DESC
+LIMIT 2;
+
 
 
 
 \echo '\n ...and this is the most abundant genre in that store:'
+
+WITH big_table AS (SELECT * FROM movie_junction_table
+JOIN movies ON movies.movie_id = movie_junction_table.film_id
+JOIN genres ON movie_junction_table.genre_id = genres.genre_id
+JOIN stock ON stock.movie_id = movies.movie_id
+JOIN stores ON stores.store_id = stock.store_id
+)
+
+
+
+-- SELECT city, genre_slug, COUNT(city) AS stock
+-- FROM big_table
+-- GROUP BY city, genre_slug
+-- ORDER BY city
+-- SELECT city, 
+-- COUNT(stock_id)
+-- OVER(PARTITION BY city) AS film_stock
+-- FROM big_table
+-- SELECT * FROM big_table
+-- WHERE city = 'Leeds'
+SELECT city, COUNT(DISTINCT stock_id),
+COUNT(genre_slug) OVER(PARTITION BY city, genre_slug)
+FROM big_table
+GROUP BY city, genre_slug
+;
