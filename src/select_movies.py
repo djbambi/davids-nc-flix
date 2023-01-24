@@ -1,7 +1,5 @@
 import pg8000.native as pg
 
-
-
 def selectmovies(username, database):
     
     try:
@@ -9,11 +7,10 @@ def selectmovies(username, database):
     except:
         return 'Check username and/or database name.'
     movie_dictionaries = []
-    result = conn.run('SELECT * FROM movies')
-    
-        
+    result = conn.run('SELECT * FROM movies')    
     
     titles = [ meta_data['name'] for meta_data in conn.columns]
+    print(result, '<<<<<titles')
     for row in result:
             movie_dictionaries.append(
                 {
@@ -26,5 +23,6 @@ def selectmovies(username, database):
                 }
                 )
     return movie_dictionaries
-    print(movie_dictionaries[0].keys())
-    
+
+selectmovies('northcoders', 'nc_flix')
+# print(sorted(selectmovies('northcoders', 'nc_flix'), key=lambda d: d['title']))
